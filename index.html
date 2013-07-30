@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="ZeroSync : " />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>ZeroSync</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>ZeroSync by zerosync</title>
   </head>
 
   <body>
+    <div id="container">
+      <div class="inner">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/zerosync">View on GitHub</a>
-
-          <h1 id="project_title">ZeroSync</h1>
-          <h2 id="project_tagline"></h2>
-
+        <header>
+          <h1>ZeroSync</h1>
+          <h2>effortless, simple file syncing</h2>
         </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <p>ZeroSync is a student project taking place during the semester 13/14 at the University of Applied Science in Wiesbaden, Germany.</p>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/zerosync" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><img src="https://raw.github.com/zerosync/zerosync.github.io/master/wiki_sources/interact.png" alt="logo"></p>
+
+<p>ZeroSync is a student project which takes place during the semester 13/14 at the University of Applied Science in Wiesbaden, Germany.</p>
 
 <h2>
 <a name="zerosync-in-a-hundred-words" class="anchor" href="#zerosync-in-a-hundred-words"><span class="octicon octicon-link"></span></a>ZeroSync in a Hundred Words</h2>
@@ -43,45 +47,44 @@ At first I tried owncloud. The especially rich feature set of this project reall
 As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.</p>
 
 <h2>
-<a name="planned-components-in-the-first-iteration" class="anchor" href="#planned-components-in-the-first-iteration"><span class="octicon octicon-link"></span></a>Planned components, in the first iteration</h2>
+<a name="project-goals" class="anchor" href="#project-goals"><span class="octicon octicon-link"></span></a>Project goals</h2>
+
+<p>During the project we're going to develop different components, which are listed below</p>
 
 <ul>
-<li>File sync client for Linux, Mac and Windows </li>
-<li>File sync server with version control, ...</li>
-<li>Nice web GUI for administrative task and more ...</li>
-<li>Android/iOS Clients</li>
-</ul><h2>
-<a name="technologies" class="anchor" href="#technologies"><span class="octicon octicon-link"></span></a>Technologies</h2>
-
-<p>The core library will heavily rely on the awesome messaging framework ØMQ. ØMQ comes with 40+ language bindings. This will allow us to use a broad variety of programming languages and frameworks to build services around the libzs core. 
-True to the motto "Choose your own weapon!"</p>
+<li>
+<strong>Core library</strong> handles to communication  and file transfer between clients and servers</li>
+<li>
+<strong>File sync client</strong> watches to file system for changes (Linux,Mac and Windows)</li>
+<li>
+<strong>File sync server</strong> handles the version control of files</li>
+<li>
+<strong>Web App Interface</strong> provides services for administrative tasks, browsing and downloading the files</li>
+<li>
+<strong>Android/iOS Client</strong> with partial sync e.g. for music or videos</li>
+</ul><p>The core library will be entirely written in C due to performance reasons. <strong>All other components can be implemented in any language you like.</strong></p>
 
 <h2>
-<a name="links-of-interest" class="anchor" href="#links-of-interest"><span class="octicon octicon-link"></span></a>Links of interest</h2>
-
-<ul>
-<li>
-<a href="http://zeromq.org">http://zeromq.org</a> - Project page of ØMQ with all information about the project</li>
-<li>
-<a href="http://zguide.zeromq.org/page:all">http://zguide.zeromq.org/page:all</a> - Super amusing guide telling you all the basics around ØMQ. Probably the best guide for an open source project I've ever read! </li>
-</ul><h2>
 <a name="interested" class="anchor" href="#interested"><span class="octicon octicon-link"></span></a>Interested?</h2>
 
-<p>For more information have a look at the wiki <a href="https://github.com/sappo/libzs/wiki">https://github.com/sappo/libzs/wiki</a>
-or write a mail to <a href="mailto:mail@zerosync.org">mail@zerosync.org</a></p>
+<p>Check out the component projects and their wiki</p>
 
-<p><em>Want to contribute?</em> Everyone is welcome! No matter which programming language or framework you prefer! Have a look at the wiki to get an overview of our tools and development processes.</p>
-      </section>
+<ul>
+<li>Core library <a href="http://libzs.zerosync.org">libzs</a> | <a href="http://wiki.libzs.zerosync.org">wiki</a>
+</li>
+<li>File sync client <a href="http://zclient.zerosync.org">zeroclient</a> | <a href="http://wiki.zclient.zerosync.org">wiki</a>
+</li>
+<li>File sync server <a href="http://zserver.zerosync.org">zeroserver</a> | <a href="http://wiki.zserver.zerosync.org">wiki</a>
+</li>
+</ul>
+        </section>
+
+        <footer>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
   </body>
 </html>
