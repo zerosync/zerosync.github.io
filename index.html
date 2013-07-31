@@ -51,21 +51,33 @@ As none of the above mentioned project offered a real solution to my problem I s
 <p><strong>Please note!</strong> <br> The features described below and on the component's wikis goes beyond the project's scope. Members can choose their own workload depending on their personal skill.</p>
 </blockquote>
 
-<ul>
-<li>
-<strong>Core library</strong> <br>
-The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. Components are different from each other from a storing data and providing data point of view. A desktop client store and provides data by accessing the local file system and the mobile clients may do so as well. The on the other hand server has to store files in some sort of content repository due to the version control it offers and query them when requested. Further the web app doesn't store any data at all but requires the metadata to keep up to date.<br>
-ZeroSync libzs is going to handle the peer to peer communication between participants. In the desktop client's case that's obviously the file system and in server's case that will be some sort of content repository. Further the core will provide a secure channel to exchange files. An versioning mechanism which clients and servers can leverage. And some sort of discovery at least for die local LAN. The core library will be entirely written in C due to performance reasons.</li>
-<li>
-<strong>File sync client</strong> <br>
-The client watches to file system for changes. Each operation system (Linux,Mac and Windows) therefore needs a own watch implementation. It also needs to listen for changes from other clients to keep everything in sync.</li>
-<li>
-<strong>File sync server</strong> handles the version control of files</li>
-<li>
-<strong>Web App Interface</strong> provides services for administrative tasks, browsing and downloading the files</li>
-<li>
-<strong>Android/iOS Client</strong> with partial sync e.g. for music or videos</li>
-</ul><blockquote>
+<h3>
+<a name="core-library" class="anchor" href="#core-library"><span class="octicon octicon-link"></span></a>Core library</h3>
+
+<p>The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling where it needs the participant to store or provide data. Components are different from a storing and providing data point of view. So this methods can't be part of the core itself and need to be implemented by the participant. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide them by the core. Further the web app doesn't store any data at all but requires the metadata to keep up to date.<br> 
+Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
+
+<h3>
+<a name="file-sync-client" class="anchor" href="#file-sync-client"><span class="octicon octicon-link"></span></a>File sync client</h3>
+
+<p>The client watches to file system for changes. Each operation system (Linux,Mac and Windows) therefore needs a own watch implementation. It also needs to listen for changes from other clients to keep everything in sync.</p>
+
+<h3>
+<a name="file-sync-server" class="anchor" href="#file-sync-server"><span class="octicon octicon-link"></span></a>File sync server</h3>
+
+<p>It handles the version control of files</p>
+
+<h3>
+<a name="web-app-interface" class="anchor" href="#web-app-interface"><span class="octicon octicon-link"></span></a>Web App Interface</h3>
+
+<p>It provides services for administrative tasks, browsing and downloading the files</p>
+
+<h3>
+<a name="androidios-client" class="anchor" href="#androidios-client"><span class="octicon octicon-link"></span></a>Android/iOS Client</h3>
+
+<p>Provides partial sync e.g. for music or videos</p>
+
+<blockquote>
 <p><strong>Programming Language!</strong> <br> The core library will be entirely written in C due to performance reasons. The other components can be implemented in <strong>any language</strong> you like. </p>
 </blockquote>
 
