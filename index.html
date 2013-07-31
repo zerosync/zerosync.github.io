@@ -54,7 +54,7 @@ As none of the above mentioned project offered a real solution to my problem I s
 <ul>
 <li>
 <strong>Core library</strong> <br>
-The core library implements common functionality every component requires. Everybody embedding the core will become an <em>ZeroSync Participant</em>. <a href="https://github.com/TODO" class="user-mention">@TODO</a>(more detail)<br>
+The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. Components are different from each other from a storing data and providing data point of view. A desktop client store and provides data by accessing the local file system and the mobile clients may do so as well. The on the other hand server has to store files in some sort of content repository due to the version control it offers and query them when requested. Further the web app doesn't store any data at all but requires the metadata to keep up to date.<br>
 ZeroSync libzs is going to handle the peer to peer communication between participants. In the desktop client's case that's obviously the file system and in server's case that will be some sort of content repository. Further the core will provide a secure channel to exchange files. An versioning mechanism which clients and servers can leverage. And some sort of discovery at least for die local LAN. The core library will be entirely written in C due to performance reasons.</li>
 <li>
 <strong>File sync client</strong> <br>
