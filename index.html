@@ -27,7 +27,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p><img src="https://raw.github.com/zerosync/zerosync.github.io/master/wiki_sources/interact.png" height="256px" width="256px"></p>
+        <p><img src="https://raw.github.com/zerosync/zerosync.github.io/master/wiki_sources/interact.png" height="128px" width="128px"></p>
 
 <p>ZeroSync is a student project which takes place during the semester 13/14 at the University of Applied Science in Wiesbaden, Germany.</p>
 
@@ -54,7 +54,8 @@ As none of the above mentioned project offered a real solution to my problem I s
 <ul>
 <li>
 <strong>Core library</strong> <br>
-The libzs component will handle the peer to peer communication between participant. Participants are clients as well as servers. The difference between a client and a server is the way they store data. In the client's case that's obviously the file system and in server's case that will be some sort of content repository. Further the core will provide a secure channel to exchange files. An versioning mechanism which clients and servers can leverage. And some sort of discovery at least for die local LAN. The core library will be entirely written in C due to performance reasons.</li>
+The core library implements common functionality every component requires. Everybody embedding the core will become an <em>ZeroSync Participant</em>. <a href="https://github.com/TODO" class="user-mention">@TODO</a>(more detail)<br>
+ZeroSync libzs is going to handle the peer to peer communication between participants. In the desktop client's case that's obviously the file system and in server's case that will be some sort of content repository. Further the core will provide a secure channel to exchange files. An versioning mechanism which clients and servers can leverage. And some sort of discovery at least for die local LAN. The core library will be entirely written in C due to performance reasons.</li>
 <li>
 <strong>File sync client</strong> <br>
 The client watches to file system for changes. Each operation system (Linux,Mac and Windows) therefore needs a own watch implementation. It also needs to listen for changes from other clients to keep everything in sync.</li>
