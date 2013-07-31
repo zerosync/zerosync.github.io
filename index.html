@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>ZeroSync by zerosync</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ZeroSync : effortless, simple file syncing" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ZeroSync</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>ZeroSync</h1>
-          <h2>effortless, simple file syncing</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/zerosync">View on GitHub</a>
+
+          <h1 id="project_title">ZeroSync</h1>
+          <h2 id="project_tagline">effortless, simple file syncing</h2>
+
         </header>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/zerosync" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><img src="https://raw.github.com/zerosync/zerosync.github.io/master/wiki_sources/interact.png" height="128px" width="128px"></p>
 
-        <hr>
-
-        <section id="main_content">
-          <p><img src="https://raw.github.com/zerosync/zerosync.github.io/master/wiki_sources/interact.png" alt="logo"></p>
-
-<p>ZeroSync is a student project which takes place during the semester 13/14 at the University of Applied Science in Wiesbaden, Germany.</p>
+<p>ZeroSync is a student project which takes place during the semester 13/14 at the <a href="http://hs-rm.de">University of Applied Science</a> in Wiesbaden, Germany.</p>
 
 <h2>
 <a name="zerosync-in-a-hundred-words" class="anchor" href="#zerosync-in-a-hundred-words"><span class="octicon octicon-link"></span></a>ZeroSync in a Hundred Words</h2>
@@ -47,27 +45,46 @@ At first I tried owncloud. The especially rich feature set of this project reall
 As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.</p>
 
 <h2>
-<a name="project-goals" class="anchor" href="#project-goals"><span class="octicon octicon-link"></span></a>Project goals</h2>
+<a name="planned-components" class="anchor" href="#planned-components"><span class="octicon octicon-link"></span></a>Planned components</h2>
 
-<p>During the project we're going to develop different components, which are listed below</p>
+<blockquote>
+<p><strong>Please note!</strong> <br> The features described below and on the component's wikis goes beyond the project's scope. Members can choose their own workload depending on their personal skill.</p>
+</blockquote>
 
-<ul>
-<li>
-<strong>Core library</strong> handles to communication  and file transfer between clients and servers</li>
-<li>
-<strong>File sync client</strong> watches to file system for changes (Linux,Mac and Windows)</li>
-<li>
-<strong>File sync server</strong> handles the version control of files</li>
-<li>
-<strong>Web App Interface</strong> provides services for administrative tasks, browsing and downloading the files</li>
-<li>
-<strong>Android/iOS Client</strong> with partial sync e.g. for music or videos</li>
-</ul><p>The core library will be entirely written in C due to performance reasons. <strong>All other components can be implemented in any language you like.</strong></p>
+<h3>
+<a name="core-library" class="anchor" href="#core-library"><span class="octicon octicon-link"></span></a>Core library</h3>
+
+<p>The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling where it needs the participant to store or provide data. Components are different from a storing and providing data point of view. So this methods can't be part of the core itself and need to be implemented by the participant. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide them by the core. Further the web app doesn't store any data at all but requires the metadata to keep up to date.<br> 
+Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
+
+<h3>
+<a name="file-sync-client" class="anchor" href="#file-sync-client"><span class="octicon octicon-link"></span></a>File sync client</h3>
+
+<p>The client watches to file system for changes. Each operation system (Linux,Mac and Windows) therefore needs a own watch implementation. It also needs to listen for changes from other clients to keep everything in sync.</p>
+
+<h3>
+<a name="file-sync-server" class="anchor" href="#file-sync-server"><span class="octicon octicon-link"></span></a>File sync server</h3>
+
+<p>It handles the version control of files</p>
+
+<h3>
+<a name="web-app-interface" class="anchor" href="#web-app-interface"><span class="octicon octicon-link"></span></a>Web App Interface</h3>
+
+<p>It provides services for administrative tasks, browsing and downloading the files</p>
+
+<h3>
+<a name="androidios-client" class="anchor" href="#androidios-client"><span class="octicon octicon-link"></span></a>Android/iOS Client</h3>
+
+<p>Provides partial sync e.g. for music or videos</p>
+
+<blockquote>
+<p><strong>Programming Language!</strong> <br> The core library will be entirely written in C due to performance reasons. The other components can be implemented in <strong>any language</strong> you like. </p>
+</blockquote>
 
 <h2>
 <a name="interested" class="anchor" href="#interested"><span class="octicon octicon-link"></span></a>Interested?</h2>
 
-<p>Check out the component projects and their wiki</p>
+<p>Check out the components and their wikis</p>
 
 <ul>
 <li>Core library <a href="http://libzs.zerosync.org">libzs</a> | <a href="http://wiki.libzs.zerosync.org">wiki</a>
@@ -77,14 +94,27 @@ As none of the above mentioned project offered a real solution to my problem I s
 <li>File sync server <a href="http://zserver.zerosync.org">zeroserver</a> | <a href="http://wiki.zserver.zerosync.org">wiki</a>
 </li>
 </ul>
-        </section>
-
-        <footer>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
     </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-42836323-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
   </body>
 </html>
