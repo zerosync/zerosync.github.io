@@ -4,7 +4,7 @@ title: ZeroSync
 subtitle: effortless, simple file syncing
 ---
 
-ZeroSync is a student project which takes place during the semester 13/14 at the [University of Applied Science Wiesbaden](http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html), Germany.
+The project takes place during the winter semester 13/14 at the [University of Applied Science Wiesbaden](http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html), Germany. It is going to be developed in the context of the Independent Study Module. ZeroSync is the code name for the **official project title "Eine Cloud-Folder Anwendung"**.
 
 ## ZeroSync in a Hundred Words
 
