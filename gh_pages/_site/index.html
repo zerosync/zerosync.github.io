@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="ZeroSync effortless, simple file syncing" name="description">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+    <title>ZeroSync</title>
+  </head>
+  <body>
+    <div class="outer" id="header_wrap">
+      <header class="inner">
+        <img id="logo" src="https://raw.github.com/zerosync/zerosync.github.io/master/wiki_sources/interact.png">
+        <a href="https://github.com/zerosync" id="forkme_banner">View on GitHub</a>
+        <h1 id="project_title">ZeroSync</h1>
+        <h2 id="project_tagline">effortless, simple file syncing</h2>
+      </header>
+    </div>
+    <div class="outer" id="main_content_wrap">
+      <section class="inner" id="main_content">
+        
+        <p>The project takes place during the winter semester 13/14 at the <a href="http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html">University of Applied Science Wiesbaden</a>, Germany. It is going to be developed in the context of the Independent Study Module. </p>
+        
+        <blockquote>
+          <p><strong>Please Note!</strong> <br /> ZeroSync is the code name for the offical project title <strong>Eine Cloud-Folder Anwendung</strong>.</p>
+        </blockquote>
+        
+        <h2 id="zerosync-in-a-hundred-words">ZeroSync in a Hundred Words</h2>
+        
+        <p>ZeroSync aims to combine features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy and won't necessarily need a running server instance to exchange files. Key features are a rapid file synchronization ranging from small to super large files, a version control, secure peer to peer communication, simple user management and one time access. The overall goal should be <em>zero effort</em> and <em>simplicity</em> for the user. Another goal for the far future is to add a Dropbox like Datastore API.
+        ZeroSync is LGPLv3 open source.</p>
+        
+        <h2 id="motivation">Motivation</h2>
+        
+        <p>During the winter break in January 2013 I (@sappo) finally had some time to build my own private cloud. I needed an easy to setup, comfortable to use solution with version control that would run on my raspberry pi.
+        At first I tried owncloud. The especially rich feature set of this project really excited me. After doing lots of optimization on my pi starting from overclocking, reducing the memory footprint to pushing php to it's edge and more, I still was stuck with an incredible slow syncing process. It would take almost 45 minutes to sync 300 files on my local LAN. Next I tried Sparkleshare. It has proven itself as stable and I even used it for a couple of weeks with fellow students. By using git under the hood it offers a popular version control system. The problem with, rolling back changes is a really laborious process and it's just not optimized for handling large files. When BitTorrent Sync hit the web later 2013 I was amazed by the ease of use. With the peer to peer features I knew from BitTorrent and it's great discovery functionality it's currently my preferred solution. Even thought BitTorrent isn't open source and is also missing a version control.
+        As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.</p>
+        
+        <h2 id="planned-components">Planned components</h2>
+        <blockquote>
+          <p><strong>Please note!</strong> <br /> The features described below and on the component's wikis goes beyond the project's scope. Each participant of the project can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. <strong>You shape the details!</strong> </p>
+        </blockquote>
+        
+        <h3 id="core-library">Core library</h3>
+        <p>The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can't be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn't store any data but may request the metadata and single files for download.<br /> 
+        Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
+        
+        <h3 id="file-sync-client">File sync client</h3>
+        <p>The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don't have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.</p>
+        
+        <h3 id="file-sync-server">File sync server</h3>
+        <p>It handles the version control of files</p>
+        
+        <h3 id="web-app-interface">Web App Interface</h3>
+        <p>It provides services for administrative tasks, browsing and downloading the files</p>
+        
+        <h3 id="androidios-client">Android/iOS Client</h3>
+        <p>Provides partial sync e.g. for music or videos</p>
+        
+        <blockquote>
+          <p><strong>Programming Language!</strong> <br /> The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. <strong>You choose your own weapon!</strong></p>
+        </blockquote>
+        
+        <h2 id="interested">Interested?</h2>
+        
+        <p>Check out the components and their wikis</p>
+        
+        <ul>
+          <li>Core library <a href="http://libzs.zerosync.org">libzs</a> <a href="http://wiki.libzs.zerosync.org">wiki</a></li>
+          <li>File sync client <a href="http://zclient.zerosync.org">zeroclient</a> <a href="http://wiki.zclient.zerosync.org">wiki</a></li>
+          <li>File sync server <a href="http://zserver.zerosync.org">zeroserver</a> <a href="http://wiki.zserver.zerosync.org">wiki</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="outer" id="footer_wrap">
+      <footer class="innner">
+        <p></p>
+      </footer>
+    </div>
+    <script>
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+      try { var pageTracker = _gat._getTracker("UA-42836323-1"); pageTracker._trackPageview(); } catch(err) {}
+    </script>
+  </body>
+</html>

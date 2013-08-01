@@ -1,0 +1,11 @@
+name: Project Name
+title: Baked with Awestruct
+org: Organization
+base_url: ''
+
+profiles:
+  production:
+    base_url: http://zerosync.github.io
+    deploy:
+      host: github_pages 
+      branch: master
