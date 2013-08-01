@@ -8,4 +8,5 @@ profiles:
     base_url: http://zerosync.github.io
     deploy:
       host: github_pages
+      branch: master      
       # use master branch to deploy to zerosync.github.io
