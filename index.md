@@ -6,7 +6,7 @@ subtitle: effortless, simple file syncing
 
 The project takes place during the winter semester 13/14 at the [University of Applied Science Wiesbaden](http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html), Germany. It is going to be developed in the context of the Independent Study Module. 
 
-> **Please Note!** <br/> The offical project title is **Eine Cloud-Folder Anwendung**.
+> **Please Note!** <br/> ZeroSync is the code name for the offical project title **Eine Cloud-Folder Anwendung**.
 
 ## ZeroSync in a Hundred Words
 
