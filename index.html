@@ -19,11 +19,15 @@
     </div>
     <div class="outer" id="main_content_wrap">
       <section class="inner" id="main_content">
-        <p>ZeroSync is a student project which takes place during the semester 13/14 at the <a href="http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html">University of Applied Science Wiesbaden</a>, Germany.</p>
+        <p>The project takes place during the winter semester 13/14 at the <a href="http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html">University of Applied Science Wiesbaden</a>, Germany. It is going to be developed in the context of the Independent Study Module. </p>
+        
+        <blockquote>
+        <p><strong>Please Note!</strong> <br/> ZeroSync is the code name for the offical project title <strong>Eine Cloud-Folder Anwendung</strong>.</p>
+        </blockquote>
         
         <h2>ZeroSync in a Hundred Words</h2>
         
-        <p>ZeroSync aims to combine features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. Providing rapid file synchronization ranging from small to super large files. Additional features include version control, secure peer to peer communication, simple user management and one time access. The overall goal should be <em>zero effort</em> and <em>simplicity</em> for the user. Another goal for the far future is to add a Dropbox like Datastore API.
+        <p>ZeroSync aims to combine features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy and won&#39;t necessarily need a running server instance to exchange files. Key features are a rapid file synchronization ranging from small to super large files, a version control, secure peer to peer communication, simple user management and one time access. The overall goal should be <em>zero effort</em> and <em>simplicity</em> for the user. Another goal for the far future is to add a Dropbox like Datastore API.
         ZeroSync is LGPLv3 open source.</p>
         
         <h2>Motivation</h2>
@@ -35,17 +39,17 @@
         <h2>Planned components</h2>
         
         <blockquote>
-        <p><strong>Please note!</strong> <br/> The features described below and on the component&#39;s wikis goes beyond the project&#39;s scope. Members can choose their own workload depending on their personal skill.</p>
+        <p><strong>Please note!</strong> <br/> The features described below and on the component&#39;s wikis goes beyond the project&#39;s scope. Each participant of the project can choose their own workload depending on their personal skill. The component&#39;s use cases within the wiki are just ideas on how the component might work. <strong>You shape the details!</strong> </p>
         </blockquote>
         
         <h3>Core library</h3>
         
-        <p>The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling where it needs the participant to store or provide data. Components are different from a storing and providing data point of view. So this methods can&#39;t be part of the core itself and need to be implemented by the participant. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide them by the core. Further the web app doesn&#39;t store any data at all but requires the metadata to keep up to date.<br/> 
+        <p>The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can&#39;t be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn&#39;t store any data but may request the metadata and single files for download.<br/> 
         Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
         
         <h3>File sync client</h3>
         
-        <p>The client watches to file system for changes. Each operation system (Linux,Mac and Windows) therefore needs a own watch implementation. It also needs to listen for changes from other clients to keep everything in sync.</p>
+        <p>The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don&#39;t have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.</p>
         
         <h3>File sync server</h3>
         
@@ -60,7 +64,7 @@
         <p>Provides partial sync e.g. for music or videos</p>
         
         <blockquote>
-        <p><strong>Programming Language!</strong> <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in <strong>any language</strong> you like. </p>
+        <p><strong>Programming Language!</strong> <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. <strong>You choose your own weapon!</strong></p>
         </blockquote>
         
         <h2>Interested?</h2>
