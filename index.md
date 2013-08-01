@@ -4,11 +4,13 @@ title: ZeroSync
 subtitle: effortless, simple file syncing
 ---
 
-ZeroSync is a student project which takes place during the semester 13/14 at the [University of Applied Science Wiesbaden](http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html), Germany.
+The project takes place during the winter semester 13/14 at the [University of Applied Science Wiesbaden](http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html), Germany. It is going to be developed in the context of the Independent Study Module. 
+
+> **Please Note!** <br/> ZeroSync is the code name for the offical project title **Eine Cloud-Folder Anwendung**.
 
 ## ZeroSync in a Hundred Words
 
-ZeroSync aims to combine features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. Providing rapid file synchronization ranging from small to super large files. Additional features include version control, secure peer to peer communication, simple user management and one time access. The overall goal should be *zero effort* and *simplicity* for the user. Another goal for the far future is to add a Dropbox like Datastore API.
+ZeroSync aims to combine features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy and won't necessarily need a running server instance to exchange files. Key features are a rapid file synchronization ranging from small to super large files, a version control, secure peer to peer communication, simple user management and one time access. The overall goal should be *zero effort* and *simplicity* for the user. Another goal for the far future is to add a Dropbox like Datastore API.
 ZeroSync is LGPLv3 open source.
 
 ## Motivation
@@ -18,14 +20,14 @@ At first I tried owncloud. The especially rich feature set of this project reall
 As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.
 
 ## Planned components
-> **Please note!** <br/> The features described below and on the component's wikis goes beyond the project's scope. Members can choose their own workload depending on their personal skill.
+> **Please note!** <br/> The features described below and on the component's wikis goes beyond the project's scope. Each participant of the project can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. **You shape the details!** 
 
 ###Core library
-The core library implements common functionality every component requires. Every component embedding the core will become an _ZeroSync Participant_. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling where it needs the participant to store or provide data. Components are different from a storing and providing data point of view. So this methods can't be part of the core itself and need to be implemented by the participant. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide them by the core. Further the web app doesn't store any data at all but requires the metadata to keep up to date.<br/> 
+The core library implements common functionality every component requires. Every component embedding the core will become an _ZeroSync Participant_. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can't be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn't store any data but may request the metadata and single files for download.<br/> 
 Another part of the core will be a discovery functionality which will work at least for the local LAN.
 
 ### File sync client
-The client watches to file system for changes. Each operation system (Linux,Mac and Windows) therefore needs a own watch implementation. It also needs to listen for changes from other clients to keep everything in sync.
+The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don't have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.
 
 ### File sync server
 It handles the version control of files
@@ -36,7 +38,7 @@ It provides services for administrative tasks, browsing and downloading the file
 ### Android/iOS Client
 Provides partial sync e.g. for music or videos
 
-> **Programming Language!** <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in **any language** you like. 
+> **Programming Language!** <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. **You choose your own weapon!**
 
 ## Interested?
 
@@ -45,4 +47,5 @@ Check out the components and their wikis
 * Core library [libzs](http://libzs.zerosync.org) [wiki](http://wiki.libzs.zerosync.org)
 * File sync client [zeroclient](http://zclient.zerosync.org) [wiki](http://wiki.zclient.zerosync.org)
 * File sync server [zeroserver](http://zserver.zerosync.org) [wiki](http://wiki.zserver.zerosync.org)
+
 
