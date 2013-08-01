@@ -20,7 +20,7 @@ At first I tried owncloud. The especially rich feature set of this project reall
 As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.
 
 ## Planned components
-> **Please note!** <br/> The features described below and on the component's wikis goes beyond the project's scope. Members can choose their own workload depending on their personal skill.
+> **Please note!** <br/> The features described below and on the component's wikis goes beyond the project's scope. Participants of the project in the context of Independent Study Module can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. **You shape the details!** 
 
 ###Core library
 The core library implements common functionality every component requires. Every component embedding the core will become an _ZeroSync Participant_. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling where it needs the participant to store or provide data. Components are different from a storing and providing data point of view. So this methods can't be part of the core itself and need to be implemented by the participant. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide them by the core. Further the web app doesn't store any data at all but requires the metadata to keep up to date.<br/> 
@@ -38,7 +38,7 @@ It provides services for administrative tasks, browsing and downloading the file
 ### Android/iOS Client
 Provides partial sync e.g. for music or videos
 
-> **Programming Language!** <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in **any language** you like. 
+> **Programming Language!** <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language you like. **You choose your own weapon!**
 
 ## Interested?
 
