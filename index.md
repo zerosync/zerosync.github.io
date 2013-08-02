@@ -35,7 +35,7 @@ The server is just another participant within the peer to peer network. It adds 
 The Web app doesn't store data at all. It acts as interface to the user for browsing files, downloading files, managing versions, administrate users and administrate the peer to peer behavior. Features that might be feasible are a music and video player, a picture gallery and so on.
 
 ### Android/iOS Client
-Usually user have a lot of pictures, music and video which won't fit in total on a mobile phone or tablet. By using the mobile client users could quickly switch music and videos while on the same network with a desktop client or server. And even over the internet if the transfer rate is appropriate. 
+Usually user have a lot of pictures, music and video which won't fit in total on a mobile phone or tablet. By using the mobile client users could quickly sync and/or switch music and videos while on the same network with a desktop client or server. And even over the internet if the transfer rate is appropriate. 
 
 > **Programming Language!** <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. **You choose your own weapon!**
 
