@@ -30,7 +30,7 @@ Another part of the core will be a discovery functionality which will work at le
 The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don't have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.
 
 ### File sync server
-It handles the version control of files
+The server is just another participant within the peer to peer network. It adds a version control system that can be accessed by a special API. Viewing older version of a file and restoring them will be part of the web app. The API enables each participant to add these features. The version control will happen automatically once a new or updated files is received from another participants. The server also provides files to other clients when requested to. 
 
 ### Web App Interface
 It provides services for administrative tasks, browsing and downloading the files
