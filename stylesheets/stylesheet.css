@@ -300,6 +300,13 @@ Full-Width Styles
   padding: 50px 10px 30px 10px;
 }
 
+.component {
+	width: 128px;
+	left: -158px;
+	position: absolute;
+	box-shadow: none;
+	border: 0;
+}
 
 #logo {
   border: 0 none;
@@ -384,6 +391,12 @@ Full-Width Styles
 /*******************************************************************************
 Small Device Styles
 *******************************************************************************/
+
+@media screen and (max-width: 990px) {
+	.component {
+		display: none;
+	}
+}
 
 @media screen and (max-width: 480px) {
   body {

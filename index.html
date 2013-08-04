@@ -27,8 +27,7 @@
         
         <h2>ZeroSync in a Hundred Words</h2>
         
-        <p>ZeroSync aims to combine features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy and won&#39;t necessarily need a running server instance to exchange files. Key features are a rapid file synchronization ranging from small to super large files, a version control, secure peer to peer communication, simple user management and one time access. The overall goal should be <em>zero effort</em> and <em>simplicity</em> for the user. Another goal for the far future is to add a Dropbox like Datastore API.
-        ZeroSync is LGPLv3 open source.</p>
+        <p>ZeroSync aims to take the best features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy where all components desktop client, server, mobile app and web app are equal and only differ in the extra service they provide. The key features will be a ultra fast file synchronization ranging from small to super large files, a version control system, secure peer to peer communication and a simple straightforward user management with one time access. The overall goal is a <em>zero effort</em>, <em>intuitive</em> user experience. ZeroSync is LGPLv3 open source.</p>
         
         <h2>Motivation</h2>
         
@@ -42,26 +41,36 @@
         <p><strong>Please note!</strong> <br/> The features described below and on the component&#39;s wikis goes beyond the project&#39;s scope. Each participant of the project can choose their own workload depending on their personal skill. The component&#39;s use cases within the wiki are just ideas on how the component might work. <strong>You shape the details!</strong> </p>
         </blockquote>
         
+        <p><img class="component" src="/images/icon_lib/Printed-Matter-Book-stack-icon.png"/></p>
+        
         <h3>Core library</h3>
         
-        <p>The core library implements common functionality every component requires. Every component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can&#39;t be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn&#39;t store any data but may request the metadata and single files for download.<br/> 
+        <p>The core library implements common functionality every component requires. Each component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can&#39;t be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn&#39;t store any data but may request the metadata and single files for download.<br/> 
         Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
+        
+        <p><img class="component" src="/images/icon_lib/Computer-Hardware-Monitor-icon.png"/></p>
         
         <h3>File sync client</h3>
         
         <p>The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don&#39;t have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.</p>
         
+        <p><img class="component" src="/images/icon_lib/It-Infrastructure-Server-icon.png"/></p>
+        
         <h3>File sync server</h3>
         
-        <p>It handles the version control of files</p>
+        <p>The server is just another participant within the peer to peer network. It adds a version control system that can be accessed by a special API. Viewing older version of a file and restoring them will be part of the web app. But the API enables each participant to add these features. The version control will happen automatically once a new or updated file is received from another participants. The server also provides files to other clients when requested to. </p>
+        
+        <p><img class="component" src="/images/icon_lib/Browsers-Firefox-icon.png"/></p>
         
         <h3>Web App Interface</h3>
         
-        <p>It provides services for administrative tasks, browsing and downloading the files</p>
+        <p>The Web app doesn&#39;t store data at all. It acts as interface to the user for browsing files, downloading files, managing versions, administrate users and administrate the peer to peer behavior. Features that might be feasible are a music and video player, a picture gallery and so on.</p>
+        
+        <p><img class="component" src="/images/icon_lib/Cell-Phones-Android-icon.png"/></p>
         
         <h3>Android/iOS Client</h3>
         
-        <p>Provides partial sync e.g. for music or videos</p>
+        <p>Usually user have a lot of pictures, music and video which won&#39;t fit in total on a mobile phone or tablet. By using the mobile client users could quickly sync and/or switch music and videos while on the same network with a desktop client or server. And even over the internet if the transfer rate is appropriate. </p>
         
         <blockquote>
         <p><strong>Programming Language!</strong> <br/> The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. <strong>You choose your own weapon!</strong></p>
