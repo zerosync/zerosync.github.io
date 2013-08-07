@@ -221,6 +221,12 @@ dl dd {
 dl p {
   padding-left: 20px;
   font-style: italic;
+  display: inline-block;
+}
+
+ul p {
+  display: inline-block;
+  margin-bottom: 0px;
 }
 
 hr {
@@ -300,7 +306,7 @@ Full-Width Styles
   padding: 50px 10px 30px 10px;
 }
 
-.component {
+.component img {
 	width: 128px;
 	left: -158px;
 	position: absolute;
