@@ -1,7 +1,7 @@
 Project website
 ==================
 
-The project website is build using awestruct with markdown. A further version might use asciidocter instead.
+The project website is build using awestruct with asciidoctor.
 
 ## Run
 
