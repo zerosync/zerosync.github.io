@@ -6,12 +6,12 @@ subtitle: effortless, simple file syncing
 
 The project takes place during the winter semester 13/14 at the http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html[University of Applied Science Wiesbaden], Germany. It is going to be developed in the context of the Independent Study Module. 
 
-> *Please Note!* +
-ZeroSync is the code name for the offical project title *Eine Cloud-Folder Anwendung*.
+NOTE: *Official Title!* +
+ZeroSync is the code name for the official project title *Eine Cloud-Folder Anwendung*.
 
 == ZeroSync in a Hundred Words
 
-ZeroSync aims to take the best features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy where all components desktop client, server, mobile app and web app are equal and only differ in the extra service they provide. The key features will be a ultra fast file synchronization ranging from small to super large files, a version control system, secure peer to peer communication and a simple straightforward user management with one time access. The overall goal is a _zero effort, intuitive_ user experience. ZeroSync is LGPLv3 open source.
+ZeroSync aims to take the best features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy where all components desktop client, server, mobile app and web app are equal and only differ in the extra services they provide. The key features will be a ultra fast file synchronization ranging from small to super large files, a version control system, secure peer to peer communication and a simple straightforward user management with one time access. The overall goal is a _zero effort, intuitive_ user experience. ZeroSync is LGPLv3 open source.
 
 == Motivation
 
@@ -33,25 +33,25 @@ The core library implements common functionality every component requires. Each 
 image::icon_lib/Computer-Hardware-Monitor-icon.png[]
 
 === File sync client
-The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don't have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.
+The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don't have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once another peer requests it.
 
 [.component]
 image::icon_lib/It-Infrastructure-Server-icon.png[]
 
 === File sync server
-The server is just another participant within the peer to peer network. It adds a version control system that can be accessed by a special API. Viewing older version of a file and restoring them will be part of the web app. But the API enables each participant to add these features. The version control will happen automatically once a new or updated file is received from another participants. The server also provides files to other clients when requested to. 
+The server is just another participant within the peer to peer network. It adds a version control system that can be accessed by a special API. The API will include viewing all versions of a file and rolling back changes to a version. The API might be accessed by the Web App. The version control will happen automatically once a new or updated file is received from another participants. Besides that the server will be a peer as any other client and provide files when requested to. 
 
 [.component]
 image::icon_lib/Browsers-Firefox-icon.png[]
 
 === Web App Interface
-The Web app doesn't store data at all. It acts as interface to the user for browsing files, downloading files, managing versions, administrate users and administrate the peer to peer behavior. Features that might be feasible are a music and video player, a picture gallery and so on.
+The Web App doesn't store any data at all. It acts as interface for browsing, downloading and managing file versions e.g. reverting to an old one. Further it has to implement some kind of user management and provide an administration for it. It would also be nice to administrate the peer to peer behavior e.g. known host. Additional features beyond that could be a music and/or video stream player, a picture gallery or an editor with syntax highlighting.
 
 [.component]
 image::icon_lib/Cell-Phones-Android-icon.png[]
 
 === Android/iOS Client
-Usually user have a lot of pictures, music and video which won't fit in total on a mobile phone or tablet. By using the mobile client users could quickly sync and/or switch music and videos while on the same network with a desktop client or server. And even over the internet if the transfer rate is appropriate. 
+Phone and Tablets usually only a limited storage. Hence syncing everything will probably fail at some point. User nowadays view pictures, listen music and watch video on these devices. Therefore the Mobile App should only sync a subset of these files. Automatically switch videos/movies when they've been watched and load other from a prioritized list could be one feature for the app.  An option the app must provide is to turn off syncing when only mobile Internet is available.
 
 > *Programming Language!* + 
 The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. *You choose your own weapon!*
@@ -64,4 +64,4 @@ Check out the components and their wikis
 * Core library http://libzs.zerosync.org[libzs] | http://wiki.libzs.zerosync.org[wiki]
 * File sync client http://zclient.zerosync.org[zeroclient] | http://wiki.zclient.zerosync.org[wiki]
 * File sync server http://zserver.zerosync.org[zeroserver] | http://wiki.zserver.zerosync.org[wiki]
-
+* Web App http://web.zerosync.org[zeroserver] | http://wiki.webzerosync.org[wiki]
