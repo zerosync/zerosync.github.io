@@ -64,4 +64,4 @@ Check out the components and their wikis
 * Core library http://libzs.zerosync.org[libzs] | http://wiki.libzs.zerosync.org[wiki]
 * File sync client http://zclient.zerosync.org[zeroclient] | http://wiki.zclient.zerosync.org[wiki]
 * File sync server http://zserver.zerosync.org[zeroserver] | http://wiki.zserver.zerosync.org[wiki]
-* Web App http://web.zerosync.org[zeroserver] | http://wiki.webzerosync.org[wiki]
+* Web App http://web.zerosync.org[Web App] | http://wiki.webzerosync.org[wiki]
