@@ -6,7 +6,7 @@ subtitle: effortless, simple file syncing
 
 The project takes place during the winter semester 13/14 at the http://www.hs-rm.de/en/dcsm-faculty/degree-programs/applied-computer-science-bsc/index.html[University of Applied Science Wiesbaden], Germany. It is going to be developed in the context of the Independent Study Module. 
 
-NOTE: *Official Title!* +
+> *Official Title!* +
 ZeroSync is the code name for the official project title *Eine Cloud-Folder Anwendung*.
 
 == ZeroSync in a Hundred Words
@@ -20,7 +20,7 @@ At first I tried owncloud. The especially rich feature set of this project reall
 As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.
 
 == Planned components
-> *Please note!* + 
+> *Note!* + 
 The features described below and on the component's wikis goes beyond the project's scope. Each participant of the project can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. *You shape the details!*
 
 [.component]
