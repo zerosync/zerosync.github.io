@@ -51,7 +51,7 @@ The Web App doesn't store any data at all. It acts as interface for browsing, do
 image::icon_lib/Cell-Phones-Android-icon.png[]
 
 === Android/iOS Client
-Phone and Tablets usually only a limited storage. Hence syncing everything will probably fail at some point. User nowadays view pictures, listen music and watch video on these devices. Therefore the Mobile App should only sync a subset of these files. Automatically switch videos/movies when they've been watched and load other from a prioritized list could be one feature for the app.  An option the app must provide is to turn off syncing when only mobile Internet is available.
+User nowadays view pictures, listen to music and watching videos on mobile devices. But phones and tablets usually only have limited storage. Hence syncing everything will probably fail at some point. Therefore the Mobile App should only sync a subset of files. A feature beyond that can be to automatically switch videos/movies once they've been watched and load unwatched from a prioritized list. An option the app must provide is to turn off syncing when only mobile Internet is available.
 
 > *Programming Language!* + 
 The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. *You choose your own weapon!*
