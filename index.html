@@ -26,8 +26,8 @@
         
         <blockquote>
         <div class="paragraph">
-        <p><strong>Please Note!</strong><br>
-        ZeroSync is the code name for the offical project title <strong>Eine Cloud-Folder Anwendung</strong>.</p>
+        <p><strong>Official Title!</strong><br>
+        ZeroSync is the code name for the official project title <strong>Eine Cloud-Folder Anwendung</strong>.</p>
         </div>
         
         </blockquote>
@@ -36,7 +36,7 @@
         <h2 id="_zerosync_in_a_hundred_words">ZeroSync in a Hundred Words</h2>
         <div class="sectionbody">
         <div class="paragraph">
-        <p>ZeroSync aims to take the best features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy where all components desktop client, server, mobile app and web app are equal and only differ in the extra service they provide. The key features will be a ultra fast file synchronization ranging from small to super large files, a version control system, secure peer to peer communication and a simple straightforward user management with one time access. The overall goal is a <em>zero effort, intuitive</em> user experience. ZeroSync is LGPLv3 open source.</p>
+        <p>ZeroSync aims to take the best features of Dropbox, Owncloud, Sparkleshare, BitTorrent Sync and other cloud sync products. It focuses on a peer to peer communication strategy where all components desktop client, server, mobile app and web app are equal and only differ in the extra services they provide. The key features will be a ultra fast file synchronization ranging from small to super large files, a version control system, secure peer to peer communication and a simple straightforward user management with one time access. The overall goal is a <em>zero effort, intuitive</em> user experience. ZeroSync is LGPLv3 open source.</p>
         </div>
         
         </div>
@@ -59,7 +59,7 @@
         
         <blockquote>
         <div class="paragraph">
-        <p><strong>Please note!</strong><br>
+        <p><strong>Note!</strong><br>
         The features described below and on the component&#8217;s wikis goes beyond the project&#8217;s scope. Each participant of the project can choose their own workload depending on their personal skill. The component&#8217;s use cases within the wiki are just ideas on how the component might work. <strong>You shape the details!</strong></p>
         </div>
         
@@ -87,7 +87,7 @@
         <div class="sect2">
         <h3 id="_file_sync_client">File sync client</h3>
         <div class="paragraph">
-        <p>The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don&#8217;t have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once they request it.</p>
+        <p>The clients primary task is to watch the file system for changes. Each operation system (Linux, Mac and Windows) has there own methods and functions for this. Therefore each OS needs an own watch implementation.  But we don&#8217;t have to start from scratch here. Open source projects like owncloud already handling this pretty well. One idea could be to fork their client and only use the file system watch part. In case of an updated file the client will inform others about the change. And provide the data once another peer requests it.</p>
         </div>
         <div class="imageblock  component">
         <div class="content">
@@ -100,7 +100,7 @@
         <div class="sect2">
         <h3 id="_file_sync_server">File sync server</h3>
         <div class="paragraph">
-        <p>The server is just another participant within the peer to peer network. It adds a version control system that can be accessed by a special API. Viewing older version of a file and restoring them will be part of the web app. But the API enables each participant to add these features. The version control will happen automatically once a new or updated file is received from another participants. The server also provides files to other clients when requested to.</p>
+        <p>The server is just another participant within the peer to peer network. It adds a version control system that can be accessed by a special API. The API will include viewing all versions of a file and rolling back changes to a version. The API might be accessed by the Web App. The version control will happen automatically once a new or updated file is received from another participants. Besides that the server will be a peer as any other client and provide files when requested to.</p>
         </div>
         <div class="imageblock  component">
         <div class="content">
@@ -113,7 +113,7 @@
         <div class="sect2">
         <h3 id="_web_app_interface">Web App Interface</h3>
         <div class="paragraph">
-        <p>The Web app doesn&#8217;t store data at all. It acts as interface to the user for browsing files, downloading files, managing versions, administrate users and administrate the peer to peer behavior. Features that might be feasible are a music and video player, a picture gallery and so on.</p>
+        <p>The Web App doesn&#8217;t store any data at all. It acts as interface for browsing, downloading and managing file versions e.g. reverting to an old one. Further it has to implement some kind of user management and provide an administration for it. It would also be nice to administrate the peer to peer behavior e.g. known host. Additional features beyond that could be a music and/or video stream player, a picture gallery or an editor with syntax highlighting.</p>
         </div>
         <div class="imageblock  component">
         <div class="content">
@@ -126,7 +126,7 @@
         <div class="sect2">
         <h3 id="_android_ios_client">Android/iOS Client</h3>
         <div class="paragraph">
-        <p>Usually user have a lot of pictures, music and video which won&#8217;t fit in total on a mobile phone or tablet. By using the mobile client users could quickly sync and/or switch music and videos while on the same network with a desktop client or server. And even over the internet if the transfer rate is appropriate.</p>
+        <p>Phone and Tablets usually only a limited storage. Hence syncing everything will probably fail at some point. User nowadays view pictures, listen music and watch video on these devices. Therefore the Mobile App should only sync a subset of these files. Automatically switch videos/movies when they&#8217;ve been watched and load other from a prioritized list could be one feature for the app.  An option the app must provide is to turn off syncing when only mobile Internet is available.</p>
         </div>
         <div class="quoteblock">
         
@@ -160,6 +160,9 @@
         </li>
         <li>
         <p>File sync server <a href="http://zserver.zerosync.org">zeroserver</a> | <a href="http://wiki.zserver.zerosync.org">wiki</a></p>
+        </li>
+        <li>
+        <p>Web App <a href="http://web.zerosync.org">Web App</a> | <a href="http://wiki.webzerosync.org">wiki</a></p>
         </li>
         </ul>
         </div>
