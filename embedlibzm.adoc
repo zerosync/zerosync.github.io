@@ -1,0 +1,9 @@
+---
+layout: default
+title: How to embed libzs!?
+subtitle: 
+---
+
+== Java aproach
+
+<code data-gist-id="6249772.js"></code>
