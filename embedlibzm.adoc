@@ -4,6 +4,8 @@ title: How to embed libzs!?
 subtitle: 
 ---
 
+:source-highlighter: prettify 
+
 == Java aproach
 
 .HelloJNI.java
