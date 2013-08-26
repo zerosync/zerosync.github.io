@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Java JNI
-subtitle: Example 
+subtitle: Print example 
 ---
 
 :source-highlighter: prettify 
 
 == How to call a C function from Java?
 
-This is a Hello World example on how a Java participant might implement the core library calls. 
+This is example illustrates how to call a native C function from Java. This is most likely the approach to implement the "Core library".
 
 .HelloJNI.java
 [source, java]
@@ -26,7 +26,7 @@ public class Hello.JNI {
 }
 ----
 
-The first step is the add a method prototype with the *native* keyword. Once this is done the header file for c can be generated using the java helper class _javah -jni_.
+The first step is to add a method prototype with the *native* keyword. Which can be called like any other Java method. On this class we invoke the java util `javah -jni HelloJNI.java` to generate the HelloJNI.h header file.
 
 .HelloJNI.h
 [source, c]
@@ -54,6 +54,8 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello
 #endif
 ----
 
+With the header file inplace we can go ahead and implement the function from the header in C.
+
 .HelloJNI.c
 [source, c]
 ----
@@ -66,5 +68,3 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *env, jobject thisOBJ) {
   return;
 }
 ----
-
-At last were implementing the C function.
