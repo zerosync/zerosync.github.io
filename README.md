@@ -9,7 +9,7 @@ The project website is build using awestruct with asciidoctor.
 
 `apt-get install ruby-dev libxml2-dev libxslt-dev rake`
 
-* Install gems (This takes a while, its ruby :( )
+* Install gems
 
 `gem install awestruct bundler asciidoctor`
 
