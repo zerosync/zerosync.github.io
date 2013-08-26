@@ -11,15 +11,15 @@ The project website is build using awestruct with asciidoctor.
 
 * Install gems (This takes a while, its ruby :( )
 
-gem install awestruct bundler asciidoctor
+`gem install awestruct bundler asciidoctor`
 
 
 ## Run in development mode
 
-rake clean preview
+`rake clean preview`
 
 After that can with the result in the browser http://localhost:4242
 
 ## Deploy to production
 
-awestruct -P production --force -g --deploy
+`awestruct -P production --force -g --deploy`
