@@ -56,6 +56,10 @@ Users nowadays view pictures, listen to music and watching videos on mobile devi
 > *Programming Language!* + 
 The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. *You choose your own weapon!*
 
+== Examples
+
+link:native_java.html[Java native interface to call a C function]
+
 == Interested?
 
 Check out the components and their wikis
