@@ -18,7 +18,7 @@ The project website is build using awestruct with asciidoctor.
 
 `rake clean preview`
 
-After that can with the result in the browser http://localhost:4242
+View the compiled website in the browser http://localhost:4242
 
 ## Deploy to production
 
