@@ -67,10 +67,16 @@
         <blockquote>
         <div class="paragraph">
         <p><strong>Note!</strong><br>
-        The features described below and on the component&#8217;s wikis goes beyond the project&#8217;s scope. Each participant of the project can choose their own workload depending on their personal skill. The component&#8217;s use cases within the wiki are just ideas on how the component might work. <strong>You shape the details!</strong></p>
+        The features described below and on the component&#8217;s wikis go beyond the project&#8217;s scope. Each participant of the project can choose their own workload depending on their personal skill. The component&#8217;s use cases within the wiki are just ideas on how the component might work. <strong>You shape the details!</strong></p>
         </div>
         
         </blockquote>
+        </div>
+        <div class="imageblock">
+        <div class="content">
+        <img src="http://yuml.me/50e25bbc.svg" alt="50e25bbc">
+        </div>
+        
         </div>
         <div class="imageblock  component">
         <div class="content">
@@ -81,7 +87,7 @@
         <div class="sect2">
         <h3 id="_core_library">Core library</h3>
         <div class="paragraph">
-        <p>The core library implements common functionality every component requires. Each component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can&#8217;t be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn&#8217;t store any data but may request the metadata and single files for download. Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
+        <p>The core library implements common functionality every component requires. Each component embedding the core will become an <em>ZeroSync Participant</em>. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to <strong>store</strong> and request to <strong>provide</strong> data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can&#8217;t be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. And a web app doesn&#8217;t store any data but may request the metadata and single files for download. Another part of the core will be a discovery functionality which will work at least for the local LAN.</p>
         </div>
         <div class="imageblock  component">
         <div class="content">
