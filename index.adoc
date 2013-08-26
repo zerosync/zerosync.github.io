@@ -21,13 +21,15 @@ As none of the above mentioned project offered a real solution to my problem I s
 
 == Planned components
 > *Note!* + 
-The features described below and on the component's wikis goes beyond the project's scope. Each participant of the project can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. *You shape the details!*
+The features described below and on the component's wikis go beyond the project's scope. Each participant of the project can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. *You shape the details!*
+
+image::http://yuml.me/50e25bbc.svg[]
 
 [.component]
 image::icon_lib/Printed-Matter-Book-stack-icon.png[]
 
 === Core library
-The core library implements common functionality every component requires. Each component embedding the core will become an _ZeroSync Participant_. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to store and request to provide data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can't be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. Ans a web app doesn't store any data but may request the metadata and single files for download. Another part of the core will be a discovery functionality which will work at least for the local LAN.
+The core library implements common functionality every component requires. Each component embedding the core will become an _ZeroSync Participant_. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to *store* and request to *provide* data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can't be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. And a web app doesn't store any data but may request the metadata and single files for download. Another part of the core will be a discovery functionality which will work at least for the local LAN.
 
 [.component]
 image::icon_lib/Computer-Hardware-Monitor-icon.png[]
