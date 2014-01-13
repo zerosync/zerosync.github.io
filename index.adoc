@@ -19,17 +19,11 @@ During the winter break in January 2013 I (@sappo) finally had some time to buil
 At first I tried owncloud. The especially rich feature set of this project really excited me. After doing lots of optimization on my pi starting from overclocking, reducing the memory footprint to pushing php to it's edge and more, I still was stuck with an incredible slow syncing process. It would take almost 45 minutes to sync 300 files on my local LAN. Next I tried Sparkleshare. It has proven itself as stable and I even used it for a couple of weeks with fellow students. By using git under the hood it offers a popular version control system. The problem with, rolling back changes is a really laborious process and it's just not optimized for handling large files. When BitTorrent Sync hit the web later 2013 I was amazed by the ease of use. With the peer to peer features I knew from BitTorrent and it's great discovery functionality it's currently my preferred solution. Even thought BitTorrent isn't open source and is also missing a version control.
 As none of the above mentioned project offered a real solution to my problem I started the idea of ZeroSync.
 
-== Planned components
-> *Note!* + 
-The features described below and on the component's wikis go beyond the project's scope. Each participant of the project can choose their own workload depending on their personal skill. The component's use cases within the wiki are just ideas on how the component might work. *You shape the details!*
-
-image::http://yuml.me/50e25bbc.svg[]
-
 [.component]
 image::icon_lib/Printed-Matter-Book-stack-icon.png[]
 
-=== Core library
-The core library implements common functionality every component requires. Each component embedding the core will become an _ZeroSync Participant_. ZeroSync libzs is going to handle the peer to peer communication between participants. It also provides a simple version handling participants can leverage. Further it will pass updates from other participants to *store* and request to *provide* data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can't be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. And a web app doesn't store any data but may request the metadata and single files for download. Another part of the core will be a discovery functionality which will work at least for the local LAN.
+=== Protocol
+The ZeroSync protocol is defined ABNF and can be easily implmented in every programming language. The reference implementation will be in C. ZeroSync uses a peer to peer approach for syncing but doesn't acutally implement any peer to peer protocol. This is provided by http://github.com/zermomq/zyre[Zyre]. ZeroSync wraps around Zyre's functionality to discover and connect participants. ZeroSync will pass updates from other participants to *store* and request to *provide* data to other participants. Components are different from a storing and providing data point of view. So the implementation for storing and providing data can't be part of the core itself and needs to be implemented within the components. A desktop client for example stores and provides data by accessing the local file system, a mobile clients may do so as well. On the other hand a server has to store files in some sort of content repository due to the version control it offers and query them when requested to provide. And a web app doesn't store any data but may request the metadata and single files for download.
 
 [.component]
 image::icon_lib/Computer-Hardware-Monitor-icon.png[]
@@ -56,17 +50,13 @@ image::icon_lib/Cell-Phones-Android-icon.png[]
 Users nowadays view pictures, listen to music and watching videos on mobile devices. But phones and tablets usually only have limited storage. Hence syncing everything will probably fail at some point. Therefore the Mobile App should only sync a subset of files. A feature beyond that can be to automatically switch videos/movies once they've been watched and load unwatched from a prioritized list. An option the app must provide is to turn off syncing when only mobile Internet is available.
 
 > *Programming Language!* + 
-The core library will be entirely written in C due to performance reasons. The other components can be implemented in any language. *You choose your own weapon!*
-
-== Examples
-
-link:native_java.html[Java native interface to call a C function]
+The protocol reference implementation will be entirely written in C due to performance reasons. The other components can be implemented in any language. *You choose your own weapon!*
 
 == Interested?
 
 Check out the components and their wikis
 
-* Core library http://libzs.zerosync.org[libzs] | http://wiki.libzs.zerosync.org[wiki]
+* Protocol http://protocol.zerosync.org[protocol] | http://wiki.protocol.zerosync.org[wiki]
 * File sync client http://zclient.zerosync.org[zeroclient] | http://wiki.zclient.zerosync.org[wiki]
 * File sync server http://zserver.zerosync.org[zeroserver] | http://wiki.zserver.zerosync.org[wiki]
 * Web App http://web.zerosync.org[zeroweb] | http://wiki.web.zerosync.org[wiki]
